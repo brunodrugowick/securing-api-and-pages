@@ -8,7 +8,7 @@
 </head>
 <body>
 
-<div th:replace="fragments/header :: header"></div>
+<div th:replace="fragments/header :: header (${username}, ${logged})"></div>
 
 <br><br>
 
@@ -42,6 +42,8 @@
                         </option>
                     </select>
                 </div>
+                <input type="hidden" th:name="${_csrf.parameterName}" th:value="${_csrf.token}"
+                       ref="csrf"/>
                 <div class="form-group row">
                     <div class="col col-sm-4"></div>
                     <input class="btn btn-primary col col-sm-8" type="submit" value="Save">
@@ -91,11 +93,15 @@
                 user_lastName: null,
                 user_roleId: null,
                 users: null,
-                roles: null
+                roles: null,
+                csrf: '',
             }
         },
         mounted() {
             this.getUsers();
+            // Handling csrf token
+            this.csrf = this.$refs.csrf.value; // get token from thymeleaf
+            axios.defaults.headers.common['X-CSRF-TOKEN'] = this.csrf; // configures axios with token
         },
         methods: {
             getUsers: function () {
