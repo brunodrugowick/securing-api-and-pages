@@ -2,6 +2,12 @@
 
 Esse repositório foi utilizado para a criação de dois vídeos (até o momento), descritos nas seções a seguir.
 
+A aplicação pode ser acessada aqui: https://securing-api-and-pages.herokuapp.com/. Usuários disponíveis:
+
+- acesso anônimo: sem fazer _login_ é possível acessar a página inicial, apenas.
+- user/password: acesso ao cadastro de usuários mas não ao cadastro de papéis.
+- admin/password: acesso a todos os cadastros (usuários e papéis).
+
 ## Parte 1
 
 Vídeo: [CRUD com Spring Security - Parte 1](https://www.youtube.com/watch?v=NeK6syg_QPk)
@@ -40,6 +46,7 @@ Pra quem for fazer algo parecido:
 
 ## Trabalhos Futuros
 
+- Usuários não _hardcoded_ na aplicação, devidamente cadastrados no banco.
 - Dar acesso a API isoladamente.
 - Tratamento de exceção e páginas de erro mais informativas e bonitas.
 - ...
